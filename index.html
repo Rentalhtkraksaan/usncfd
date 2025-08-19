@@ -27,26 +27,35 @@
     }
     /* Tambahkan sebelum .container */
     .wrapper {
-  max-height: 90vh; /* maksimal tinggi 90% viewport */
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto; /* scroll vertikal */
-  padding: 20px 0;
+  justify-content: center; /* center horizontal */
+  align-items: flex-start; /* mulai dari atas */
+  overflow-y: auto; /* scroll vertikal jika perlu */
+  padding: 40px 0 80px 0; /* atas 40px, bawah 80px */
+}
+
+/* Agar form terakhir selalu di tengah vertikal ketika kontainer lebih pendek */
+.container {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.75);
+    padding: 10px 30px 30px 30px; /* top, right, bottom, left */
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertikal isi container */
+  overflow: hidden;
+  min-height: 300px; /* opsional, supaya kontainer punya tinggi minimal */
 }
 
 
-    .container { 
-      width: 100%;
-      max-width: 600px; 
-      background-color: rgba(255, 255, 255, 0.75); /* semi transparan */
-      padding: 30px; 
-      border-radius: 10px; 
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-      position: relative;
-      z-index: 1;
-    }
 
     h1 { text-align: center; color: #007bff; margin-bottom: 20px; }
     .form-group { margin-bottom: 20px; }
