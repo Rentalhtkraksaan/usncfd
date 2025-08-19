@@ -25,6 +25,18 @@
       object-fit: cover;
       z-index: -1;
     }
+    /* Tambahkan sebelum .container */
+    .wrapper {
+  max-height: 90vh; /* maksimal tinggi 90% viewport */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* scroll vertikal */
+  padding: 20px 0;
+}
+
+
     .container { 
       width: 100%;
       max-width: 600px; 
@@ -126,55 +138,58 @@
 </head>
 <body>
     <video id="bg-video" autoplay muted loop playsinline preload="auto">
-  <source src="nadia.mp4" type="video/mp4">
-</video>
+        <source src="nadia.mp4" type="video/mp4">
+    </video>
 
+    <!-- Wrapper scrollable -->
+    <div class="wrapper">
+        <div class="container">
+            <h1>Input Data Barang Anggota CWU</h1>
+            <div class="date-info">Tanggal Acara: <span id="tanggalAcara">Tidak ditemukan</span></div>
 
-  <div class="container">
-    <h1>Input Data Barang Anggota CWU</h1>
-    <div class="date-info">Tanggal Acara: <span id="tanggalAcara">Tidak ditemukan</span></div>
+            <form id="clubForm" style="display:none;">
+                <div class="form-group">
+                    <label for="namaLengkap">Nama Lengkap:</label>
+                    <input type="text" id="namaLengkap" name="namaLengkap" required>
+                </div>
+                
+                <h2>Katalog Produk</h2>
 
-        <form id="clubForm" style="display:none;">
-            <div class="form-group">
-                <label for="namaLengkap">Nama Lengkap:</label>
-                <input type="text" id="namaLengkap" name="namaLengkap" required>
-            </div>
-            
-            <h2>Katalog Produk</h2>
-
-            <div id="catalogs" class="catalogs">
-                <div class="catalog-item">
-                    <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
-                    <div class="form-group">
-                        <label>Nama Produk:</label>
-                        <input type="text" class="namaProduk" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Jumlah Unit:</label>
-                        <input type="number" class="jumlahUnit" required min="1" value="1">
-                    </div>
-                    <div class="form-group">
-                        <label>Harga Satuan:</label>
-                        <input type="number" class="hargaSatuan" required min="0" value="0">
+                <div id="catalogs" class="catalogs">
+                    <div class="catalog-item">
+                        <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+                        <div class="form-group">
+                            <label>Nama Produk:</label>
+                            <input type="text" class="namaProduk" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jumlah Unit:</label>
+                            <input type="number" class="jumlahUnit" required min="1" value="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Harga Satuan:</label>
+                            <input type="number" class="hargaSatuan" required min="0" value="0">
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="button-group">
+                    <button type="button" class="add-btn" id="addCatalogBtn">Tambah Katalog</button>
+                </div>
+                
+                <div class="upload-option">
+                    <input type="checkbox" id="uploadImageCheck" name="uploadImage">
+                    <label for="uploadImageCheck">Unggah Gambar Setelah Mengirim?</label>
+                </div>
+                
+                <button type="submit" class="send-btn" style="width: 100%; margin-top: 20px;">Kirim Data</button>
+            </form>
             
-            <div class="button-group">
-                <button type="button" class="add-btn" id="addCatalogBtn">Tambah Katalog</button>
-            </div>
-            
-            <div class="upload-option">
-                <input type="checkbox" id="uploadImageCheck" name="uploadImage">
-                <label for="uploadImageCheck">Unggah Gambar Setelah Mengirim?</label>
-            </div>
-            
-            <button type="submit" class="send-btn" style="width: 100%; margin-top: 20px;">Kirim Data</button>
-        </form>
-        
-        <div id="formStatus"></div>
+            <div id="formStatus"></div>
+        </div>
     </div>
 
+    <!-- Modal tetap di level body -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <p>Yakin ga upload foto produk? Coba kamu cari produk serupa di google biar foto produk kamu bisa di taruh di x-banner. Karena ini tidak akan diminta lagi.</p>
@@ -188,6 +203,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
