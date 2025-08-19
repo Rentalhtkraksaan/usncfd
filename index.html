@@ -85,6 +85,13 @@
         .upload-option { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
         #formStatus { text-align: center; margin-top: 20px; font-size: 1.2em; color: #555; display: none; }
         #formStatus.success-message { color: #28a745; font-weight: bold; }
+
+        /* Tambahan: jika dinonaktifkan oleh PJ */
+        #formStatus.disabled-message { 
+            color: #28a745;   /* hijau */
+            font-weight: 600; /* agak tebal */
+        }
+
         #formStatus a { color: inherit; text-decoration: none; font-weight: bold; }
         #formStatus a:hover { text-decoration: underline; }
         .upload-button {
@@ -294,6 +301,7 @@
                 form.style.display = 'none';
                 formStatusElement.textContent = "Maaf, formulir saat ini sedang dinonaktifkan oleh PJ. dibuka pukul 12:00";
                 formStatusElement.style.display = 'block';
+                formStatusElement.className = 'disabled-message';
             }
         });
 
