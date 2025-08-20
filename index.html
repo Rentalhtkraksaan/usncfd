@@ -413,13 +413,13 @@ input[type="number"]:focus {
                     formStatusElement.style.display = 'none';
                 } else {
                     tanggalAcaraElement.textContent = "Tanggal belum diatur.";
-                    formStatusElement.textContent = "Maaf, formulir belum dibuka oleh ketua.";
+                    formStatusElement.textContent = "Maaf, formulir belum dibuka oleh PJ.";
                     formStatusElement.style.display = 'block';
                     form.style.display = 'none';
                 }
             } else {
                 form.style.display = 'none';
-                formStatusElement.textContent = "Maaf, formulir saat ini sedang dinonaktifkan oleh PJ. dibuka pukul 12:00";
+                formStatusElement.textContent = "Maaf, formulir saat ini sedang dinonaktifkan oleh PJ";
                 formStatusElement.style.display = 'block';
                 formStatusElement.className = 'disabled-message';
             }
