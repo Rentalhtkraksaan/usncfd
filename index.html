@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Input Data Anggota Klub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video id="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="nadia.mp4" type="video/mp4" />
+  </video>
+
+  <div class="wrapper">
+    <div class="container">
+      <h1>Input Data Barang Anggota CWU</h1>
+      <div class="date-info">Tanggal Acara: <span id="tanggalAcara">Tidak ditemukan</span></div>
+
+      <form id="clubForm" style="display:none;">
+        <div class="form-group">
+          <label for="namaLengkap">Nama Lengkap:</label>
+          <input type="text" id="namaLengkap" required />
+        </div>
+
+        <h2>Katalog Produk</h2>
+        <div id="catalogs" class="catalogs">
+          <div class="catalog-item">
+            <button type="button" class="remove-btn" onclick="this.parentElement.remove()">×</button>
+            <div class="form-group">
+              <label>Nama Produk:</label>
+              <input type="text" class="namaProduk" required />
+            </div>
+            <div class="form-group">
+              <label>Jumlah Unit:</label>
+              <input type="number" class="jumlahUnit" required min="1" value="1" />
+            </div>
+            <div class="form-group">
+              <label>Harga Satuan:</label>
+              <input type="number" class="hargaSatuan" required min="0" value="0" />
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="add-btn" id="addCatalogBtn">Tambah Katalog</button>
+        </div>
+
+        <!-- ✅ Checkbox Kontribusi -->
+        <div class="pernyataan">
+          <input type="checkbox" id="kontribusiWajib" />
+          <span>Saya setuju bahwa setiap produk akan dipotong <b>10%</b> untuk kontribusi CWU.</span>
+        </div>
+
+        <button type="submit" class="send-btn" id="sendBtn" disabled>Kirim Data</button>
+      </form>
+
+      <div id="formStatus"></div>
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+  <!-- Script Utama -->
+  <script src="script.js"></script>
+</body>
+</html>
