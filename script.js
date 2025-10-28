@@ -87,9 +87,12 @@ form.addEventListener('submit', (e) => {
     });
   });
 
-  db.ref('dataAnggota/').push(data).then(() => {
-    form.style.display = 'none';
-    statusEl.style.display = 'block';
-    statusEl.textContent = '✅ Data berhasil dikirim!';
-  }).catch(err => alert('Kesalahan: ' + err.message));
+ db.ref('dataAnggota/').push(data).then(() => {
+  form.style.display = 'none';
+  statusEl.style.display = 'block';
+  statusEl.innerHTML = `
+    ✅ Data berhasil dikirim! Silahkan cek <a href="https://initdataflow.vercel.app" target="_blank">di sini</a>.
+  `;
+}).catch(err => alert('Kesalahan: ' + err.message));
 });
+
