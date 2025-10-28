@@ -16,6 +16,17 @@ body {
   overflow: hidden;
   position: relative;
 }
+#formStatus a {
+  color: #1e40af;       /* ganti dengan warna yang kamu mau */
+  text-decoration: none; /* hilangkan garis bawah */
+  font-weight: bold;     /* opsional, biar lebih terlihat */
+}
+
+#formStatus a:hover {
+  color: #2563eb;        /* warna saat hover */
+  text-decoration: underline; /* garis bawah muncul saat hover */
+}
+
 
 #bg-video {
   position: fixed;
@@ -237,3 +248,4 @@ input[type=number]:focus {
     padding: 15px;
   }
 }
+
